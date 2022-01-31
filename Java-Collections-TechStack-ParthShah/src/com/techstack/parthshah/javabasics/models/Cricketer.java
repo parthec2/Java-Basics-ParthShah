@@ -1,5 +1,6 @@
 package com.techstack.parthshah.javabasics.models;
 
+import java.util.List;
 
 public class Cricketer 
 {
@@ -7,10 +8,22 @@ public class Cricketer
 	private int runs;
 	private double avg;
 	
+	private List<String> formatsPlayed; //ODI,TEST,IPL
+	
+	//Constructor-1
 	public Cricketer(String name,int runs,double avg) {
 		this.name = name;
 		this.runs = runs;
 		this.avg=avg;
+		this.formatsPlayed=null;
+	}
+	
+	//Constructor-2
+	public Cricketer(String name, int runs, double avg, List<String> formatsPlayed) {
+		this.name = name;
+		this.runs = runs;
+		this.avg=avg;
+		this.formatsPlayed = formatsPlayed;
 	}
 	
 	@Override
@@ -40,6 +53,13 @@ public class Cricketer
 	
 	public void setAvg(double avg) {
 		this.avg = avg;
+	}
+	public List<String> getFormatsPlayed() {
+		return formatsPlayed;
+	}
+
+	public void setFormatsPlayed(List<String> formatsPlayed) {
+		this.formatsPlayed = formatsPlayed;
 	}
 	
 }
