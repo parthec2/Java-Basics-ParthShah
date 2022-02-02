@@ -7,13 +7,9 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.*;
 
-import com.oracle.webservices.internal.api.message.BasePropertySet;
 
 public class Stream_ParallelStreamDemo {
 
-	//https://www.youtube.com/watch?v=t1-YZ6bF-g0&ab_channel=JoeJames
-	//Java 8 STREAMS Tutorial By-Joe James
-	
 	public static void main(String[] args) throws IOException {
 
 		long time1 = System.currentTimeMillis();

@@ -16,19 +16,29 @@ import com.techstack.parthshah.javabasics.models.*;
 public class Consumer_Supplier_Predicate_Demo {
 
 	public static void main(String[] args) {
+		List<Integer> lst1 = Arrays.asList(8,1,2,5,6);
+		
 		System.out.println("======== Consumer Demo =====================================================");
-		Consumer<Integer> consumer1=  (i)-> {
+
+		//Demo-Consumer<Integer> consumer1= public void  (Integer i) --> { //some implementation}
+		Consumer<Integer> consumer1= 
+		(i) ->
+		{
 			System.out.println("Consumer Prints - "+ i);
 		};
 		
-		consumer1.accept(50000);
+		consumer1.accept(50000);//Note-accept is SAM in Consumer interface
 
-		List<Integer> lst1 = Arrays.asList(8,1,2,5,6);
+		/*
 		lst1.stream().forEach(consumer1);
 		lst1.stream().forEach((i)-> System.out.println("Consumer Lambda Prints - "+ i));
+
 		
 		System.out.println("======== Predicate Demo =====================================================");
-		Predicate<Long> predicate1 = (num)-> {
+		Predicate<Long> predicate1 = 
+		(Long num)-> 
+		{ 
+			//implementation of "test(T t)" method of predicate interface
 			if(num % 2==0) {
 				return true;
 			}
@@ -38,31 +48,31 @@ public class Consumer_Supplier_Predicate_Demo {
 		};
 		
 		System.out.println("5 is even ? - "+ predicate1.test(5L));
+		System.out.println("6 is even ? - "+ predicate1.test(6L));
 
-		lst1.stream().filter( num -> { return (num % 2==0); }).forEach(x-> System.out.println("Even numbers are - "+ x));
+		lst1.stream().forEach(x-> System.out.println(x));
+		lst1.stream()
+			.filter( num -> { return (num % 2==0); })
+			.forEach(x-> System.out.println("Even numbers are - "+ x));
 		
+		
+		*/
+		
+		/*
 		System.out.println("======== Supplier Demo =====================================================");
 		Supplier<Integer> supplier1 = () -> {return 0 ;};//some default value
 		System.out.println(supplier1.get());
 		
 		ArrayList<Integer> arrylst2 = new ArrayList<>();
-		arrylst2.add(5000);
-		arrylst2.add(1000);
 		
 		//get only first available value or return some default value which is return by supplier1
 		System.out.println(arrylst2.stream().findAny().orElseGet(supplier1));
-		
-		Set<Integer> set1 = arrylst2.stream().collect(Collectors.toSet());
-		set1.stream().forEach(x-> System.out.println("Set values are -" + x));
-		
-		arrylst2.clear();
+
 		//As array list is clear so it shd return default value by supplier1 which is 0
 		System.out.println("List is empty so value return by supplier is - " + arrylst2.stream().findAny().orElseGet(supplier1));
-		
+		*/
 		
 		
 	}
 
 }
-
-

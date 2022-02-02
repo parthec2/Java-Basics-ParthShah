@@ -13,24 +13,33 @@ public class FunctionalInterfaceDemo2 {
 	public static void main(String[] args) {
 		
 		List<Book> arryBooks= getAllBooks();
-		System.out.println("Descending Book sorting using class implementing Comparator interface ");
-		Collections.sort(arryBooks, new BookDescSorter());
-		
+		System.out.println("===Before Sorting-Book Name Order ====================");
 		for(Book objBook : arryBooks) {
 			System.out.println(objBook.name);
 		}
-		
+//		System.out.println("Descending Book sorting using class implementing Comparator interface ");
+//		Collections.sort(arryBooks, new BookDescSorterComparator());
+//		System.out.println("===After Sorting-Descending By Book Name====================");
+//		for(Book objBook : arryBooks) {
+//			System.out.println(objBook.name);
+//		}
+//		
 		System.out.println("=======================================================");
 		System.out.println("Descending Book sorting using lambda expression implementing functional interface- Comparator");
-		Collections.sort(arryBooks, (Book b1,Book b2)->{
-			return b2.name.compareTo(b1.name);
-		});
 		
+		//lambda expression dont have qualifier,name
+		Collections.sort(arryBooks, 
+					(Book b1,Book b2)->
+		    {
+		    	return b2.name.compareTo(b1.name); //implementing compare method of comparator Interface
+		    }
+		);
+	
 		for(Book objBook : arryBooks) {
 			System.out.println(objBook.name);
 		}
-		
-	}
+
+	}//End of main class
 	
 	public static List<Book> getAllBooks(){
 		ArrayList<Book> lstBooks = new ArrayList<Book>();
@@ -46,16 +55,17 @@ public class FunctionalInterfaceDemo2 {
 
 }//end of class FunctionalInterfaceDemo2
 
-
-class BookDescSorter implements Comparator<Book>{
+//////////////////////////////////////////////////////////////
+class BookDescSorterComparator implements Comparator<Book>{
 
 	@Override
 	public int compare(Book o1, Book o2) {
 		
-		return o2.name.compareTo(o1.name);
+		return o2.name.compareTo(o1.name);//desc sorting logic
 	}
 
 }
+////////////////////////////////////////////////////////////////
 class MyComparator implements Comparator<Integer>{
 
 	@Override
