@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -72,7 +73,7 @@ public class Consumer_Supplier_Predicate_Demo {
 		System.out.println("List is empty so value return by supplier is - " + arrylst2.stream().findAny().orElseGet(supplier1));
 		*/
 		
-		
+	
 	}
 
 }
